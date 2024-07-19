@@ -1,0 +1,5 @@
+we can group their cache line into one group and then when which one wants to write data on cache, get exclusive access to write into same cache line. this will serialize all the cores into all the cores into some order.
+ the idea is to each cpu spin on a local variable, not shared among other CPUs for that we use a queue each node is a core want to access resource. we control this space aalocation with ticketLock.
+https://mfukar.github.io/2017/09/26/mcs.html
+ c)we can define per-cpu variable in linux with DEFINE_PER_CPU(type,name); command. thid command an instance of a variable of type type and name name for each processor on the system. for declaration we can   use DECLARE_PER_XPU(type,name). we can access to variable with get_cpu_var() and put_cpu_var() routines
+ https://litux.nl/mirror/kerneldevelopment/0672327201/ch11lev1sec11.html
